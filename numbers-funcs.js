@@ -1,3 +1,14 @@
-// Numbers
-const realNum = (n) => Math.max(+n, 0);
+/** 
+ * Numbers Module
+ * @author Michael Rosata
+ * @license GPL-V3
+ */
 
+// abs :: Number -> Number
+const abs = num => Math.abs(num);
+// int :: Mixed -> Int
+const int = (mixed) => ~~mixed;
+// pow :: Number, Number -> Number
+const pow = (base, exponent) => Math.pow(base, exponent);
+// toFixed :: ( Int, Float ) -> Fixed
+const toFixed = (digits, number) => int(pow(10, digits) * number) / pow(10, digits); 
