@@ -1,7 +1,7 @@
 /** 
  * Numbers Module
  * @author Michael Rosata
- * @license GPL-V3
+ * @license MIT
  */
 
 // abs :: Number -> Number
