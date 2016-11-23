@@ -1,7 +1,7 @@
 // isObject :: Mixed -> Boolean
 const isObject = (o) => o && typeof o === "object";
 // isArray :: Mixed -> Boolean
-const isArray = (a) => isObject(a) && a.constructor === Array;
+const isArray = (a) => Array.isArray(a);
 // isCallable :: Mixed -> Boolean
 const isCallable = (fn) => typeof fn === "function";
 // isUndefined :: Mixed -> Boolean
