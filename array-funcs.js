@@ -13,9 +13,9 @@ function arrayFuncs(decoratee = window, ns = 'devSnip') {
   // slice :: [a] => [a]
   devSnips.slice = [].slice.call.bind([].slice)
   // toList :: (ArrayLike A) => A<a> => [a]
-  devSnips.toList = as => slice(as)
+  devSnips.toList = as => devSnips.slice(as)
   // reverse :: [a] -> [a]
-  devSnips.reverse = (a) => toList(a).reverse()
+  devSnips.reverse = (a) => devSnips.toList(a).reverse()
   // map :: ([a], a -> b) -> [b]
   devSnips.map = fn => xs => xs.map(fn)
   // tail :: [a] -> [a]
@@ -25,7 +25,7 @@ function arrayFuncs(decoratee = window, ns = 'devSnip') {
   // head :: [a] -> [a]
   devSnips.head = ([x, ...xs]) => [x]
   // last :: [a] -> a
-  devSnips.last = ([x, ...xs]) => xs.length === 0 ? x : last(xs)
+  devSnips.last = ([x, ...xs]) => xs.length === 0 ? x : devSnips.last(xs)
   // first :: [a] -> a
   devSnips.first = ([x, ...xs]) => x
   
