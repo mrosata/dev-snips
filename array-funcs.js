@@ -1,23 +1,18 @@
-// copyArray :: Array -> Array
-const copyArray = (a) => a.slice(0);
-// reverseArray :: Array -> Array
-const reverseArray = (a) => copyArray(a).reverse();
-// forEach :: (Array, Function) -> Array
-const forEach = (a, fn) => copyArray(a).map(fn);
-// splitWords :: String -> String
-const splitWords = (s) => s.split(' ');
-// splitChars :: String -> String
-const splitChars = (s) => s.split('');
-// capitalize :: String -> String
-const capitalize = (s) => splitChars(s)[0].toUpperCase() + s.slice(1);
-// sentenceFromArray :: Array -> String
-const sentenceFromArray = (a) => copyArray(a).join(' ');
-// capitalizeWords :: String -> String
-const capitalizeWords = (s) => sentenceFromArray(forEach(splitWords(s), capitalize));
-
-// TODO: Document below
-const toList = (l) => [].concat(l);
-const tail = (l) => toList(l).slice(1);
-const head = (l) =>  toList(l).slice(0, realNum( toList(l).length - 1) );
-const lastItem = (l) =>  toList(l)[ realNum( toList(l).length -1 ) ];
-const firstItem = (l) => toList(l)[0];
+// slice :: [a] => [a]
+const slice = [].slice.call.bind([].slice)
+// toList :: (ArrayLike A) => A<a> => [a]
+const toList = as => slice(as)
+// reverse :: [a] -> [a]
+const reverse = (a) => toList(a).reverse()
+// map :: ([a], a -> b) -> [b]
+const map = fn => xs => xs.map(fn)
+// tail :: [a] -> [a]
+const tail = ([x, ...xs]) => xs
+// init :: [a] -> [a]
+const init = xs => xs.length < 2 ? xs : xs.slice(0, xs.length-1)
+// head :: [a] -> [a]
+const head = ([x, ...xs]) => [x]
+// last :: [a] -> a
+const last = ([x, ...xs]) => xs.length === 0 ? x : last(xs)
+// first :: [a] -> a
+const first = ([x, ...xs]) => x
